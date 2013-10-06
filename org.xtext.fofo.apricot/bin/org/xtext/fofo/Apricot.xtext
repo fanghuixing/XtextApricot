@@ -1,0 +1,377 @@
+grammar org.xtext.fofo.Apricot with org.eclipse.xtext.common.Terminals
+
+generate apricot "http://www.xtext.org/fofo/Apricot"
+
+Program:
+	 PackageDeclaration	 
+;
+
+PackageDeclaration:
+	'package' name=QualifiedName ';'
+	 (imports += Import)*
+	(elements += AbstractElement)*	
+;
+
+AbstractElement:
+   RefType 
+;
+
+Import:
+	'import' importedNamespace = QualifiedNameWithWildcard ';';
+
+QualifiedNameWithWildcard:
+  QualifiedName '.*'?
+;
+
+QualifiedName:
+	 ID ('.' ID)*;
+	
+
+
+
+Type: NonRefType | RefType ;
+
+Modifier:
+	'public' | 'private'
+;
+
+BuiltInModifier:
+	'Native'
+;
+
+RefType:	 
+	 Class|Interface
+;
+
+
+NonRefType: 
+	BasicType | MathType
+;
+
+BasicType : BT = ('void' | 'int' | 'real' | 'boolean' | 'String');
+
+
+
+MathType: MT = ('Int' | 'Real');
+
+
+
+Interface returns Interface:
+   Modifier? 'interface'  name=ID ('extends' superclass=[Interface|QualifiedName])? '{'
+   	(members += AbstractInterfaceElement)*
+   
+    '}'  ;
+
+
+Class returns Class:
+   Modifier? 'class' name=ID 
+   ('extends' superclass=[Class|QualifiedName])?  
+   ('implements' interfaceclass=[Interface|QualifiedName])? '{'
+        (members += Member)*
+    '}' ;
+    
+
+Member: Field | Method;
+
+FieldName:
+	ID
+;
+
+Field: type=UseType name=FieldName  ('=' varini=VariableInitializer)? ';' ;
+
+
+Method:
+  Modifier? type=UseType name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' '{'
+        body=MethodBody
+    '}' ;
+
+AbstractMethod:
+  Modifier? BuiltInModifier? type=UseType name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' 
+  ('{'
+        body=AbstractMethodBody
+    '}')? ';' ;
+
+
+//THE MOST IMPORTANT RULE 
+UseType:
+	type1=[RefType] | type2=NonRefType
+;
+
+Parameter: type=UseType  name=ID ;
+
+
+TypedElement: Member | Parameter;
+
+MethodBody: locvars+=LocalVarDec* return=ReturnStatement;
+AbstractMethodBody:
+	RequiresAbstractComposition
+;
+LocalVarName :
+	ID
+;
+
+LocalVarDec:
+	type=UseType name=LocalVarName ('=' varini=VariableInitializer)? ';'
+;
+
+VariableInitializer:
+	Expression
+;
+
+ReturnStatement:
+	'return' expression=Expression ';' 
+;
+
+/* 
+Expression:		 
+	
+    TerminalExpression  
+    =>(
+        {Selection.receiver=current} '.' 
+        message=[Member]
+        ('(' (args+=Expression (',' args+=Expression)*)? ')')?
+    )*     
+    ;
+
+*/
+
+TerminalExpression returns Expression:	
+   This |
+   ParamRef |
+   NewByClass |
+   =>Cast  |
+   Constant |
+   Paren 
+    ;
+
+
+
+This: variable='this';
+ParamRef: parameter=[Parameter];
+NewByClass: 'new' type=[Class] '(' (args+=Expression (',' args+=Expression)*)? ')';
+Cast: '(' type=UseType ')' expression=TerminalExpression;
+Paren returns Expression: '(' Expression ')'; 
+
+Constant:  IntConstant | BoolConstant | StringConstant;
+
+StringConstant: constant=STRING;
+
+IntConstant: constant=INT;
+
+BoolConstant: constant = ('true' | 'false');
+
+//Requires
+terminal AMOUNT_GEONE:
+	"1..*"
+;
+
+terminal AMOUNT_ONE_OR_ZERO:
+	"0..1"
+;
+
+AMOUNT:
+	AMOUNT_GEONE | AMOUNT_ONE_OR_ZERO
+;
+
+AbstractInterfaceElement:
+	AbstractMethod | Requires | ClockConstraint | AbstractInvariant
+;
+
+
+
+Requires:
+	'Requires' name=ID '[' AMOUNT ']' ':' type=UseType ';'
+;
+
+terminal ASYACTIONS:
+	"(" "?" "|" "!" ")"
+;
+
+AbstractDynamicSwitch:
+	"(" type1=[RefType] ('|' type2=[RefType])? "," 
+	    type3=[RefType]  "," 
+	    type4=[RefType] ( '|' type5=[RefType])? ")" 
+;
+
+terminal ABSTRACT_CONDTION:
+	'Condition' "{" "}" ";"
+;
+
+RequiresAbstractComposition:
+	"Requires" name=ID "[" AMOUNT "]" ASYACTIONS "[" AMOUNT "]" ":" 
+	abstract_dynamic_switch=AbstractDynamicSwitch 
+		"{" ABSTRACT_CONDTION  "}" ";"
+;
+
+
+terminal CLOCK:
+	'clock'
+;
+
+ClockConstraint:
+	{ClockConstraint} 'Constraint' name=CLOCK ';'
+;
+
+
+AbstractInvariant:
+	{AbstractInvariant} 'Invariant' '{' '}' ';'
+;
+
+//expressions
+
+
+
+Expression:
+	ConditionalExpression (=> assignmentoperator=AssignmentOperator expression=Expression)?;
+
+AssignmentOperator:
+	'=' | '+=' | '-=' | '*=' | '/=' | '&=' | '|=' | '^=' | '%='
+;
+
+ConditionalExpression:
+	conditionalorexpression=ConditionalOrExpression ('?' expression1=Expression ':' expression2=Expression)?;
+
+ConditionalOrExpression:
+	conditionalandexpression+=ConditionalAndExpression ('or' conditionalandexpression+=ConditionalAndExpression)*;
+
+ConditionalAndExpression:
+	exclusiveorexpression+=ExclusiveOrExpression ('and' exclusiveorexpression+=ExclusiveOrExpression)*;
+
+ExclusiveOrExpression:
+	equalityexpression+=EqualityExpression ('xor' equalityexpression+=EqualityExpression)*;
+
+EqualityExpression:
+	instanceofexpression+=InstanceOfExpression (('==' | '!=') instanceofexpression+=InstanceOfExpression)*;
+
+InstanceOfExpression:
+	RelationalExpression ('instanceof' type=UseType)?;
+
+RelationalExpression:
+	additiveexpression+=AdditiveExpression (relationalop+=RelationalOp additiveexpression+=AdditiveExpression)*;
+
+RelationalOp: 
+	'<' | '<='
+	| '>' | '>='
+	;
+	
+AdditiveExpression:
+	multiplicativeexpression+=MultiplicativeExpression (('+' | '-') multiplicativeexpression+=MultiplicativeExpression)*;
+
+MultiplicativeExpression:
+	unaryexpression+=UnaryExpression (('*' | '/' | '%') unaryexpression+=UnaryExpression)*;
+
+UnaryExpression:
+	('+' UnaryExpression
+	| '-' UnaryExpression
+	| '++' UnaryExpression
+	| '--' UnaryExpression
+	| UnaryExpressionNotPlusMinus);
+
+UnaryExpressionNotPlusMinus:
+	{UnaryExpressionNotPlusMinus}
+	(
+	 '!' unaryexpression=UnaryExpression
+//	| castexpression=CastExpression
+	| primary=Primary
+	);
+
+
+Primary:
+	{Primary}
+	(parexpression=ParExpression
+		| literal=Literal
+		| 'this' ('.' identifier+=ID)* (=>identifiersuffix=IdentifierSuffix)?
+		| identifier+=ID ('.' identifier+=ID)* (=>identifiersuffix=IdentifierSuffix)?
+		//| 'this' ('.' member+=[Member])* (=>identifiersuffix=IdentifierSuffix)?
+        // | member+=[Member] ('.' member+=[Member])* (=>identifiersuffix=IdentifierSuffix)?                	
+	)
+	;
+
+IdentifierSuffix:
+	{IdentifierSuffix}
+	(('[' ']')+ '.' 'class'
+	| arguments=Arguments
+	| '.' 'class'
+	| '.' 'this'
+	| '.' 'super' arguments=Arguments	
+    );
+
+Arguments:
+	{Arguments} '(' expressionlist=ExpressionList? ')';
+ExpressionList:
+	expression1=Expression (',' expression2+=Expression)*;	
+CastExpression:
+	{CastExpression}
+	'(' type=UseType ')' unaryexpression=UnaryExpression	
+	;
+	
+ParExpression:
+	'(' Expression ')';
+	
+Literal:
+	IntegerLiteral | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | BooleanLiteral | 'null';
+
+IntegerLiteral:
+	HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL;
+
+terminal HEX_LITERAL:
+	'0' ('x' | 'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX?;
+
+terminal DECIMAL_LITERAL:
+	('0' | '1'..'9' '0'..'9'*) INTEGER_TYPE_SUFFIX?;
+
+terminal OCTAL_LITERAL:
+	'0' ('0'..'7')+ INTEGER_TYPE_SUFFIX?;
+
+terminal fragment HEX_DIGIT:
+	('0'..'9' | 'a'..'f' | 'A'..'F');
+
+terminal fragment INTEGER_TYPE_SUFFIX:
+	('l' | 'L');
+
+terminal FLOATING_POINT_LITERAL:
+	('0'..'9')+ '.' ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
+	| '.' ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
+	| ('0'..'9')+ EXPONENT FLOAT_TYPE_SUFFIX?
+	| ('0'..'9')+ FLOAT_TYPE_SUFFIX;
+
+terminal fragment EXPONENT:
+	('e' | 'E') ('+' | '-')? ('0'..'9')+;
+
+terminal fragment FLOAT_TYPE_SUFFIX:
+	('f' | 'F' | 'd' | 'D');
+
+terminal CHARACTER_LITERAL:
+	'\'' (ESCAPE_SEQUENCE | !('\'' | '\\')) '\'';
+
+terminal STRING_LITERAL:
+	'"' (ESCAPE_SEQUENCE | !('\\' | '"'))* '"';
+
+terminal fragment ESCAPE_SEQUENCE:
+	'\\' ('b' | 't' | 'n' | 'f' | 'r' | '\"' | '\'' | '\\')
+	| UNICODE_ESCAPE
+	| OCTAL_ESCAPE;
+
+terminal fragment OCTAL_ESCAPE:
+	'\\' ('0'..'3') ('0'..'7') ('0'..'7')
+	| '\\' ('0'..'7') ('0'..'7')
+	| '\\' ('0'..'7');
+
+terminal fragment UNICODE_ESCAPE:
+	'\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT;
+	
+BooleanLiteral:
+	'true' | 'false';
+		
+//Differential Equations
+
+
+
+DE_LHS:
+	'dot' '(' var1=ID ',' (var2=ID) ',' order=INT ')'
+;
+
+DifferentialEquation:
+	LHS=DE_LHS "==" RHS=Expression
+;
+
