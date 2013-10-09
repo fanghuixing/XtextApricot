@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="XtextApricot" url="http://fanghuixing.github.io/XtextApricot/">
+      The Update Site for Apricot
+   </description>
+   <feature url="features/org.xtext.fofo.apricot.sdk_1.0.0.201310091604.jar" id="org.xtext.fofo.apricot.sdk" version="1.0.0.201310091604">
+      <category name="Apricot"/>
+   </feature>
+   <archive path="XtextApricot" url="http://fanghuixing.github.io/XtextApricot/"/>
+   <category-def name="Apricot" label="An Object-Oriented Modelling Language for Hybrid Systems"/>
+</site>
