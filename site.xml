@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.xtext.fofo.apricot.sdk_1.0.0.201310091453.jar" id="org.xtext.fofo.apricot.sdk" version="1.0.0.201310091453"/>
+   <feature url="features/org.xtext.fofo.apricot.sdk_1.0.0.201310091500.jar" id="org.xtext.fofo.apricot.sdk" version="1.0.0.201310091500"/>
 </site>
