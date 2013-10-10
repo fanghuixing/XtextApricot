@@ -1,0 +1,20 @@
+﻿clear
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch gh-pages
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	deleted:    .project
+#	deleted:    artifacts.jar
+#	deleted:    content.jar
+#	deleted:    features/org.xtext.fofo.apricot.sdk_1.0.0.201310091619.jar
+#	deleted:    index.html
+#	deleted:    plugins/it.xsemantics.runtime_1.3.0.v20130903-2040.jar
+#	deleted:    plugins/org.xtext.fofo.apricot.ui_1.0.0.201310091619.jar
+#	deleted:    plugins/org.xtext.fofo.apricot_1.0.0.201310091619.jar
+#	deleted:    site.xml
+#	deleted:    web/site.css
+#	deleted:    web/site.xsl
+#
+
