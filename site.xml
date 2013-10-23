@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.xtext.fofo.apricot.sdk_1.0.0.201310232108.jar" id="org.xtext.fofo.apricot.sdk" version="1.0.0.201310232108">
+   <feature url="features/org.xtext.fofo.apricot.sdk_1.0.0.201310232156.jar" id="org.xtext.fofo.apricot.sdk" version="1.0.0.201310232156">
       <category name="Apricot"/>
    </feature>
    <category-def name="Apricot" label="An Object-Oriented Modelling Language for Hybrid Systems"/>
