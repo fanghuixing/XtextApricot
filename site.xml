@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<site>
-   <feature url="features/org.xtext.fofo.apricot.sdk_1.0.0.201311012250.jar" id="org.xtext.fofo.apricot.sdk" version="1.0.0.201311012250">
+<site
+      mirrorsURL="http://www.fanghuixing.com/XtextApricot/">
+   <description name="Apricot Research" url="http://xtextapricot.apricotresearch.com/">
+      The Update for XtextApricot
+   </description>
+   <feature url="features/org.xtext.fofo.apricot.sdk_1.0.0.201311021055.jar" id="org.xtext.fofo.apricot.sdk" version="1.0.0.201311021055">
       <category name="Apricot"/>
    </feature>
    <category-def name="Apricot" label="An Object-Oriented Modelling Language for Hybrid Systems"/>
