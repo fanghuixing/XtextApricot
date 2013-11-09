@@ -4,7 +4,7 @@
    <description name="Apricot Research" url="http://xtextapricot.apricotresearch.com/">
       The Update for XtextApricot
    </description>
-   <feature url="features/org.xtext.fofo.apricot.sdk_1.0.0.201311091617.jar" id="org.xtext.fofo.apricot.sdk" version="1.0.0.201311091617">
+   <feature url="features/org.xtext.fofo.apricot.sdk_1.0.0.201311091634.jar" id="org.xtext.fofo.apricot.sdk" version="1.0.0.201311091634">
       <category name="Apricot"/>
    </feature>
    <category-def name="Apricot" label="An Object-Oriented Modelling Language for Hybrid Systems"/>
