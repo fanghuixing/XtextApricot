@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.xtext.fofo.apricot/src-gen" editDirectory="/org.xtext.fofo.apricot.edit/src"
+    editorDirectory="/org.xtext.fofo.apricot.editor/src" modelPluginID="org.xtext.fofo.apricot"
+    forceOverwrite="true" modelName="Apricot" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.xtext.fofo.apricot.edit"
+    editorPluginID="org.xtext.fofo.apricot.editor" runtimeVersion="2.9">
+  <genPackages prefix="Apricot" basePackage="org.xtext.fofo" disposableProviderFactory="true"
+      fileExtensions="apr" ecorePackage="Apricot.ecore#/">
+    <genClasses ecoreClass="Apricot.ecore#//PackageDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//PackageDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//PackageDeclaration/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//PackageDeclaration/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Import/importedNamespace"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//RefType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//RefType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//NonRefType"/>
+    <genClasses ecoreClass="Apricot.ecore#//BasicType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//BasicType/BT"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//MathType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//MathType/MT"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Interface">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Apricot.ecore#//Interface/superclass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Interface/members"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Class">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Apricot.ecore#//Class/superclass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Apricot.ecore#//Class/interfaceclass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Class/members"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Member"/>
+    <genClasses ecoreClass="Apricot.ecore#//Field">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Field/accessmodifer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Field/variablemodifer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Field/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Field/dim"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Field/varini"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//ConstructorMethod">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ConstructorMethod/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ConstructorMethod/body"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Method">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Method/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Method/dim"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Method/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Method/body"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//AbstractMethod">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//AbstractMethod/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//AbstractMethod/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//AbstractMethod/body"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//UseType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Apricot.ecore#//UseType/reftype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//UseType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Parameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Parameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Parameter/dim"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//TypedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//TypedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//MethodBody"/>
+    <genClasses ecoreClass="Apricot.ecore#//AbstractMethodBody"/>
+    <genClasses ecoreClass="Apricot.ecore#//VariableInitializer"/>
+    <genClasses ecoreClass="Apricot.ecore#//ReturnStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ReturnStatement/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//AbstractInterfaceElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//AbstractInterfaceElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Requires">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Requires/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//AbstractDynamicSwitch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//AbstractDynamicSwitch/sname"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Apricot.ecore#//AbstractDynamicSwitch/type1"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Apricot.ecore#//AbstractDynamicSwitch/type2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//AbstractDynamicSwitch/aname"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Apricot.ecore#//AbstractDynamicSwitch/type3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//AbstractDynamicSwitch/dname"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Apricot.ecore#//AbstractDynamicSwitch/type4"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Apricot.ecore#//AbstractDynamicSwitch/type5"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//AbstractCompositionMethod">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//AbstractCompositionMethod/rac"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//NativeStartMethod"/>
+    <genClasses ecoreClass="Apricot.ecore#//RequiresAbstractComposition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//RequiresAbstractComposition/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//RequiresAbstractComposition/abstract_dynamic_switch"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//ClockConstraint"/>
+    <genClasses ecoreClass="Apricot.ecore#//AbstractInvariant"/>
+    <genClasses ecoreClass="Apricot.ecore#//Expression"/>
+    <genClasses ecoreClass="Apricot.ecore#//ConditionalExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//ConditionalExpression/assignmentoperator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ConditionalExpression/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ConditionalExpression/conditionalorexpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ConditionalExpression/expression1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ConditionalExpression/expression2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//ConditionalOrExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ConditionalOrExpression/conditionalandexpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//ConditionalAndExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ConditionalAndExpression/exclusiveorexpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//ExclusiveOrExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ExclusiveOrExpression/equalityexpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//EqualityExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//EqualityExpression/instanceofexpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//InstanceOfExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//InstanceOfExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//InstanceOfExpression/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//RelationalExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//RelationalExpression/additiveexpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//RelationalExpression/relationalop"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//AdditiveExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//AdditiveExpression/multiplicativeexpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//MultiplicativeExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//MultiplicativeExpression/unaryexpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//UnaryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//UnaryExpression/from"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//UnaryExpression/to"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//UnaryExpressionNotPlusMinus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//UnaryExpressionNotPlusMinus/unaryexpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//UnaryExpressionNotPlusMinus/castexpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//UnaryExpressionNotPlusMinus/primary"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//UnaryExpressionNotPlusMinus/builtin"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Primary">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Primary/parexpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Primary/literal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Primary/newobject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Primary/newarray"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Primary/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Primary/dimer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Primary/identifiersuffix"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//IdentifierSuffix">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//IdentifierSuffix/arguments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//IdentifierSuffix/getvalue"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Arguments">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Arguments/expressionlist"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//ExpressionList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ExpressionList/expression1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ExpressionList/expression2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//CastExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//CastExpression/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//CastExpression/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//ParExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ParExpression/expression1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ParExpression/expression2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//DE_LHS">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//DE_LHS/var1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//DE_LHS/var2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//DE_LHS/order"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//DifferentialEquation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//DifferentialEquation/LHS"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//DifferentialEquation/RHS"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//ContinuousMethod">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ContinuousMethod/DES"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//AbstractContinuousMethod"/>
+    <genClasses ecoreClass="Apricot.ecore#//Built_In_Methods"/>
+    <genClasses ecoreClass="Apricot.ecore#//Sqrt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Sqrt/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Sqrt/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Sin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Sin/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Sin/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Cos">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Cos/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Cos/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Tan">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Tan/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Tan/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Cot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Cot/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Cot/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Sec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Sec/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Sec/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Csc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Csc/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Csc/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Round">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Round/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Round/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Floor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Floor/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Floor/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Ceil">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Ceil/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Ceil/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Div">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Div/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Div/e1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Div/e2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Fld">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Fld/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Fld/e1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Fld/e2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Rem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Rem/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Rem/e1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Rem/e2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Mod">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Mod/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Mod/e1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Mod/e2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Gcd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Gcd/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Gcd/e1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Gcd/e2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Lcm">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Lcm/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Lcm/e1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Lcm/e2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Abs">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Abs/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Abs/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Sign">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Sign/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Sign/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Root">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Root/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Root/e1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Root/e2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Hypot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Hypot/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Hypot/e1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Hypot/e2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Pow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Pow/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Pow/e1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Pow/e2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Exp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Exp/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Exp/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Log">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Log/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Log/e1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Log/e2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Erf">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Erf/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Erf/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Gamma">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Gamma/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Gamma/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Max">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Max/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Max/e1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Max/e2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Min">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Min/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Min/e1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Min/e2"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Pause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Pause/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Pause/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Size">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Size/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Size/ex"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//InvariantBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//InvariantBlock/conditions"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Block/blockstatement"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//BlockStatement"/>
+    <genClasses ecoreClass="Apricot.ecore#//LocalVarDecStatement"/>
+    <genClasses ecoreClass="Apricot.ecore#//LocalVarDec">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//LocalVarDec/variablemodifer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//LocalVarDec/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//LocalVarDec/dim"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//LocalVarDec/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//LocalVarDec/varini"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//Statement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Statement/block"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Statement/parexpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Statement/ifstatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Statement/elsestatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Statement/forcontrol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Statement/forstatement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//Statement/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Statement/whilestatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Statement/return"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//Statement/statementexpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//ForControl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ForControl/enhancedforcontrol"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ForControl/forinit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ForControl/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ForControl/forupdate"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//EnhancedForControl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//EnhancedForControl/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//EnhancedForControl/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//EnhancedForControl/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//ForInit"/>
+    <genClasses ecoreClass="Apricot.ecore#//ForUpdate"/>
+    <genClasses ecoreClass="Apricot.ecore#//CompositionMethod">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//CompositionMethod/members"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//ControlSwitchComposition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//ControlSwitchComposition/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//ControlSwitchComposition/sync"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//ControlSwitchComposition/recev"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//ControlSwitchComposition/send"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ControlSwitchComposition/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ControlSwitchComposition/sourcelist"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ControlSwitchComposition/action"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ControlSwitchComposition/destination"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ControlSwitchComposition/destinationlist"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ControlSwitchComposition/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ControlSwitchComposition/discrete"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//DiscreteBlock">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//DiscreteBlock/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//DiscreteBlock/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//ConditionBlock">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//ConditionBlock/BuiltInName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//ConditionBlock/conditions"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//DiscreteMethod">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//DiscreteMethod/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//DiscreteMethod/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//AbstractDiscreteMethod"/>
+    <genClasses ecoreClass="Apricot.ecore#//InitMethod">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//InitMethod/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//AbstractInitMethod"/>
+    <genClasses ecoreClass="Apricot.ecore#//NewByClass">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Apricot.ecore#//NewByClass/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//NewByClass/args"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//NewArray">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//NewArray/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//NewArray/dime"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//DimExpr"/>
+    <genClasses ecoreClass="Apricot.ecore#//body">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//body/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//InfiniteLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//InfiniteLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//IntegerLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//IntegerLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//FloatingPointLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//FloatingPointLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//CharacterLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//CharacterLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//StringLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//BooleanLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//BooleanLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//NullLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Apricot.ecore#//NullLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Apricot.ecore#//dimex">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Apricot.ecore#//dimex/index"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

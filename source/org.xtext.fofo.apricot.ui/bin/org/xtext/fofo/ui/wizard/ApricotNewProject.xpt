@@ -1,0 +1,135 @@
+«IMPORT org::xtext::fofo::ui::wizard»
+
+«DEFINE main FOR ApricotProjectInfo»
+«EXPAND model FOR this»
+«EXPAND Assignment FOR this»
+«EXPAND SequentialAssignment FOR this»
+«EXPAND Plant FOR this»
+«EXPAND ParallelAssignment FOR this»
+«EXPAND Dynamic FOR this»
+«EXPAND Controller FOR this»
+«EXPAND System FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR ApricotProjectInfo»
+«FILE "src/model/Model.apr"-»
+/*
+ * This is an example model
+ */
+package model;
+import com.fofo.apricot.Plant; 
+class Train implements Plant{
+    int amount;
+}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE SequentialAssignment FOR ApricotProjectInfo»
+«FILE "src/com/fofo/apricot/SequentialAssignment.apr"-»
+package com.fofo.apricot;
+import com.fofo.apricot.Assignment;
+
+interface SequentialAssignment extends Assignment{
+    
+}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE Plant FOR ApricotProjectInfo»
+«FILE "src/com/fofo/apricot/Plant.apr"-»
+package com.fofo.apricot;
+import com.fofo.apricot.Dynamic;
+import com.fofo.apricot.Assignment;
+import com.fofo.apricot.System;
+import com.fofo.apricot.Controller;
+interface Plant{
+    Requires dy[1..*] : Dynamic;
+    Requires ass[1..*] : Assignment;
+    Requires sy[0..1] : System;    
+    Requires controller[0..1] : Controller;    
+    
+    void Composition(){
+        Requires coms[1..*](?|!)[0..1] : (dss[1..*] : Dynamic|System, ass[0..1] : Assignment, dsd[1..*] : Dynamic|System)
+        {
+            Condition{};
+            Discrete{};
+        };
+    };
+}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ParallelAssignment FOR ApricotProjectInfo»
+«FILE "src/com/fofo/apricot/ParallelAssignment.apr"-»
+package com.fofo.apricot;
+import com.fofo.apricot.Assignment;
+
+interface  ParallelAssignment extends Assignment{
+    
+    
+}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE Dynamic FOR ApricotProjectInfo»
+«FILE "src/com/fofo/apricot/Dynamic.apr"-»
+package com.fofo.apricot;
+
+interface Dynamic{                
+    void Continuous();    
+    Invariant{};        
+    Native void Start();    
+}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE Controller FOR ApricotProjectInfo»
+«FILE "src/com/fofo/apricot/Controller.apr"-»
+package com.fofo.apricot;
+import com.fofo.apricot.Dynamic;
+import com.fofo.apricot.Assignment;
+
+interface Controller{
+    Constraint clock;        
+    Requires dy[1..*] : Dynamic;
+    Requires ass[1..*] : Assignment;
+        
+    
+    void Composition(){        
+        Requires coms[1..*](?|!)[0..1] : (dys[1..*] : Dynamic, ass[0..1] : Assignment, dyd[1..*] : Dynamic)
+        {
+            Condition{};
+            Discrete{};
+        };
+    };
+    
+}
+
+
+«ENDFILE»
+«ENDDEFINE»
+
+
+«DEFINE Assignment FOR ApricotProjectInfo»
+«FILE "src/com/fofo/apricot/Assignment.apr"-»
+package com.fofo.apricot;
+
+interface Assignment{            
+    void Discrete();    
+}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE System FOR ApricotProjectInfo»
+«FILE "src/com/fofo/apricot/System.apr"-»
+package com.fofo.apricot;
+import com.fofo.apricot.Plant;
+import com.fofo.apricot.Controller;
+
+interface System{    
+    Requires plants[1..*] : Plant;
+    Requires controllers[1..*] : Controller;    
+    void Init();
+}
+«ENDFILE»
+«ENDDEFINE»

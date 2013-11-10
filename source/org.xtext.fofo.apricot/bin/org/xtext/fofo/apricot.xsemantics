@@ -1,0 +1,6 @@
+system apricot.xemantics.ApricotSystem
+
+validatorExtends org.xtext.fofo.validation.AbstractApricotJavaValidator
+
+
+
